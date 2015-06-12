@@ -1,14 +1,22 @@
 {
-  "name": "jsonresume-theme-onepageresume",
-  "version": "0.0.1",
+  "name": "jsonresume-theme-onepageresumefixed",
+  "version": "0.0.3",
   "description": "OnePageResume theme for JSON Resume",
-  "author": "Nabil Bendafi",
+  "author": "Nabil Bendafi and Zach Feldman",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nabilbendafi/jsonresume-theme-onepageresume"
+    "url": "https://github.com/zachfeldman/jsonresume-theme-onepageresume"
   },
   "license": "MIT",
   "dependencies": {
     "handlebars": "^2.0.0-alpha.4"
+  },
+  "bugs": {
+    "url": "https://github.com/zachfeldman/jsonresume-theme-onepageresume/issues"
+  },
+  "homepage": "https://github.com/zachfeldman/jsonresume-theme-onepageresume",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
