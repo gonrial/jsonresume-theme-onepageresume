@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>One Page Resume</title>
+    <title>{{resume.basics.name}} Resume</title>
     <style type="text/css">
     {{css}}
     </style>
@@ -25,35 +25,6 @@
       <div class="clear"></div>
       <dl>
         <dd class="clear"></dd>
-        {{#if resume.education.length}}
-        <dt>Education</dt>
-        <dd>
-          {{#each resume.education}}
-          <h2>{{institution}}
-            <span>
-            {{startDate}} -
-            {{#if endDate.length}}
-            {{endDate}}
-            {{^}}
-            Present
-            {{/if}}
-            </span>
-          </h2>
-          {{studyType}}{{#area}} - <i>{{.}}</i>{{/area}}<br/>
-          {{/each}}
-        </dd>
-        {{/if}}
-        <dd class="clear"></dd>
-        {{#if resume.skills.length}}
-        <dt>Skills</dt>
-        <dd>
-          {{#each resume.skills}}
-          <h2>{{name}}</h2>
-          <p>{{keywords}}</p>
-          {{/each}}
-        </dd>
-        {{/if}}
-        <dd class="clear"></dd>
         {{#if resume.work.length}}
         <dt>Experience</dt>
         {{#each resume.work}}
@@ -63,9 +34,9 @@
           </h4>
           <h2>{{company}}
             <span>
-              {{startDate}} -
+              {{formatDate startDate month="short" year="numeric"}} -
               {{#if endDate.length}}
-              {{endDate}}
+              {{formatDate endDate month="short" year="numeric"}}
               {{^}}
               Present
               {{/if}}
@@ -79,6 +50,40 @@
           </ul>
         </dd>
         {{/each}}
+        {{/if}}
+        <dd class="clear"></dd>
+        {{#if resume.education.length}}
+        <dt>Education</dt>
+        <dd>
+          {{#each resume.education}}
+          <h2>{{institution}}
+            <span>
+            {{formatDate startDate year="numeric"}} -
+            {{#if endDate.length}}
+            {{formatDate endDate year="numeric"}}
+            {{^}}
+            Present
+            {{/if}}
+            </span>
+          </h2>
+          {{studyType}}{{#area}} - <i>{{.}}</i>{{/area}}<br/>
+          <ul>
+          {{#courses}}
+            <li>{{.}}</li>
+          {{/courses}}
+          </ul>
+          {{/each}}
+        </dd>
+        {{/if}}
+        <dd class="clear"></dd>
+        {{#if resume.skills.length}}
+        <dt>Skills</dt>
+        <dd>
+          {{#each resume.skills}}
+          <h2>{{name}}</h2>
+          <p>{{keywords}}</p>
+          {{/each}}
+        </dd>
         {{/if}}
         <dd class="clear"></dd>
         {{#if resume.languages.length}}
@@ -103,8 +108,8 @@
         {{/each}}
         {{/if}}
         <dd class="clear"></dd>
-        {{#if resume.references.length}}
         <dt>References</dt>
+        {{#if resume.references.length}}
         {{#each resume.references}}
         <dd><i>{{reference}}</i><br>
           <br><h2><span>{{name}}</span></h2>

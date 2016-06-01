@@ -1,5 +1,8 @@
 var fs = require("fs");
 var Handlebars = require("handlebars");
+var HandlebarsIntl = require("handlebars-intl");
+
+HandlebarsIntl.registerWith(Handlebars);
 
 function render(resume) {
 	var css = fs.readFileSync(__dirname + "/style.css", "utf-8");
